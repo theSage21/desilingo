@@ -1,7 +1,9 @@
 import os
 import json
+from googletrans import Translator
 from bottle import template
 
+############ CONFIG LOADING #############
 def reload_config(name='config.json'):
     with open(name, 'r') as file:
         config = json.loads(file.read())
@@ -9,6 +11,7 @@ def reload_config(name='config.json'):
 
 CONFIG = reload_config()
 
+############ OTHER FUNCTIONS #############
 def render(name, data=None):
     "Render a html template"
     global CONFIG
