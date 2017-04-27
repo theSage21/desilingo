@@ -64,6 +64,7 @@
             return(url);
         }
         $( "#go_button" ).click(function() { var url = update_url(); document.location.href = url; });
+        $('input:text').focus( function(){ $(this).val(''); });
         $( "#targetfield" ).change(function() { update_url() });
         $( "#nickfield" ).change(function() { update_url() });
         $( "#mediumfield" ).change(function() { update_url() });
