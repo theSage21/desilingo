@@ -20,10 +20,15 @@ def about():
 def start():
     return render('start.html')
 
-@app.get('/learn/<user>/<target>/<medium>/<level>')
-def learning(user, target, medium, level):
+@app.get('/learn/<nickname>/<target>/<medium>/<level>')
+def learning(nickname, target, medium, level):
     level = int(level)
-    return render('learn.html')
+    data = {'nickname': nickname,
+            'target': target,
+            'medium': medium,
+            'nextlevel': level + 1
+            }
+    return render('learn.html', data)
 
 
 # --------------MAIN
