@@ -21,10 +21,9 @@ def start():
     return render('start.html')
 
 @app.get('/learn/<user>/<target>/<medium>/<level>')
-def get_profile(user, target, medium, level=0):
-    user = utils.get_user(user)
+def learning(user, target, medium, level):
     level = int(level)
-    return render('learn.html', {'user': user})
+    return render('learn.html')
 
 
 # --------------MAIN

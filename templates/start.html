@@ -19,8 +19,8 @@
 
 	  <!-- CSS
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	  <link rel="stylesheet" href="static/css/normalize.css">
-	  <link rel="stylesheet" href="static/css/skeleton.css">
+	  <link rel="stylesheet" href="/static/css/normalize.css">
+	  <link rel="stylesheet" href="/static/css/skeleton.css">
 	  <!-- Scripts
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -59,7 +59,7 @@
             var nick = $("#nickfield").val();
             var target = $("#targetfield").val();
             var medium = $("#mediumfield").val();
-            var url = "/learn/"+nick+"/"+target+"/"+medium;
+            var url = "/learn/"+nick+"/"+target+"/"+medium+"/0";
             $('#target_url_para').text(url);
             return(url);
         }
