@@ -28,5 +28,5 @@ def get_level_data(level, target, medium):
     m_q = 'medium question'
     t_a = 'target answer'
     m_a = 'medium answer'
-    links = ['google.com']
+    links = [('https://google.com', 'Google')]
     return t_q, m_q, t_q, m_a, links

@@ -36,7 +36,6 @@ def learning(nickname, target, medium, level):
             }
     return render('learn.html', data)
 
-
 # --------------MAIN
 @app.get('/static/<path:path>')
 def static_server(path):

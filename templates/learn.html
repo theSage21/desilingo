@@ -60,15 +60,15 @@
                         </tr>
                         <tr>
                             <td><input type='text' name='answer_target' value='Answer in {{target}}'></td>
-                            <td class='hidden_q'><input type='text' name='answer_medium' value='Answer in {{medium}}'></td>
+                            <td class='hidden_q'></td>
                         </tr>
                     </tbody>
                 </table>
                 <div class='four columns'>
                     Links for this level:
                     <ul>
-                          % for link in links:
-                              <li><a href={{link}}>{{link}}</a></li>
+                          % for link in links[:10]:
+                              <li><a href={{link[0]}}>{{link[1]}}</a></li>
                           % end
                     </ul>
                 </div>
