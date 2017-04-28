@@ -22,23 +22,11 @@ def render(name, data=None):
         html = file.read()
     return template(html, **data)
 
-def user_exists(user):
-    with dataset.connect(DB_STRING) as db:
-        users = db['Users']
-        existing_user = users.find_none(nick=user)
-    return existing_user is not None
 
-def create_user(user):
-    with dataset.connect(DB_STRING) as db:
-        users = db['Users']
-        users.insert({'nick': user})
-
-def get_question(level):
-    with dataset.connect(DB_STRING) as db:
-        questions = db['question']
-        q = questions.find_one(level=level)
-    return q
-
-def translate(text, target):
-    # TODO
-    return text
+def get_level_data(level, target, medium):
+    t_q = 'target question'
+    m_q = 'medium question'
+    t_a = 'target answer'
+    m_a = 'medium answer'
+    links = ['google.com']
+    return t_q, m_q, t_q, m_a, links

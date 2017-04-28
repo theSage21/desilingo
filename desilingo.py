@@ -23,10 +23,16 @@ def start():
 @app.get('/learn/<nickname>/<target>/<medium>/<level>')
 def learning(nickname, target, medium, level):
     level = int(level)
+    target_question, medium_question, target_answer, medium_answer, links = utils.get_level_data(level, target, medium)
     data = {'nickname': nickname,
             'target': target,
             'medium': medium,
-            'nextlevel': level + 1
+            'nextlevel': level + 1,
+            'target_question': target_question,
+            'medium_question': medium_question,
+            'target_answer': target_answer,
+            'medium_answer': medium_answer,
+            'links': links
             }
     return render('learn.html', data)
 

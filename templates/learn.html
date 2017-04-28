@@ -21,6 +21,11 @@
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <link rel="stylesheet" href="/static/css/normalize.css">
 	  <link rel="stylesheet" href="/static/css/skeleton.css">
+      <style>
+        .question {background-color: #F5F3F1;}
+        .answer {background-color: #8145BA;}
+        .hidden_q {background-color: #BF8EA9; display: none;}
+      </style>
 	  <!-- Scripts
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -39,12 +44,49 @@
         <hr>
         <div class='container'>
             <p><b>{{nickname}}:</b> learning <b>{{target}}</b> via the <b>{{medium}}</b> medium.</p>
+            <hr>
+        </div>
+        <div class='container'>
             <div class='row'>
+                <table class='eight columns question'>
+                    <thead>
+                        <tr>
+                            <th>{{target}}</th><th>{{medium}} <button id='visibility_toggle' val='Show'>Show Translation</button></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{target_question}}</td><td class='hidden_q'>{{medium_question}}</td>
+                        </tr>
+                        <tr>
+                            <td><input type='text' name='answer_target' value='Answer in {{target}}'></td>
+                            <td class='hidden_q'><input type='text' name='answer_medium' value='Answer in {{medium}}'></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class='four columns'>
+                    Links for this level:
+                    <ul>
+                          % for link in links:
+                              <li><a href={{link}}>{{link}}</a></li>
+                          % end
+                    </ul>
+                </div>
             </div>
         </div>
         <hr>
         <div class='container'>
-            <button><a href='/learn/{{nickname}}/{{target}}/{{medium}}/{{nextlevel}}'>Next Level</a></button>
+            <button><a href='/learn/{{nickname}}/{{target}}/{{medium}}/{{nextlevel}}'>Proceed to the next Level</a></button>
         </div>
+        <script>
+            $('input:text').focus( function(){ $(this).val(''); });
+            var visible=false;
+            $('#visibility_toggle').click(function () {
+                if(!visible){
+                    $(".hidden_q").show();
+                    $("#visibility_toggle").hide();
+                }
+            });
+        </script>
     </body>
 </html>
